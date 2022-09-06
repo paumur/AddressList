@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+      integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js" defer></script>
+    <title></title>
+  </head>
+  <body>
+    <nav>
+      <div class="navbar">
+        <i class="fa-solid fa-list-check"></i>
+        <h2><span>your.</span>addressBook</h2>
+      </div>
+    </nav>
+    <main>
+      <section class="user-registration">
+        <form class="user-registration__form">
+          <input
+            class="user-registration__name"
+            type="text"
+            placeholder="Full Name"
+            name="name"
+          />
+          <input
+            class="user-registration__email"
+            type="email"
+            name="email"
+            placeholder="email@example.com"
+          />
+          <input
+            class="user-registration__tel"
+            type="tel"
+            name="tel"
+            placeholder="Phone Number"
+          />
+          <button type="submit">Register</button>
+        </form>
+        <div class="function-buttons">
+          <input
+            type="text"
+            class="function-buttons__search-contact"
+            placeholder="Search Contact"
+          />
+          <button class="function-buttons__delete-selected">
+            Delete Selected Contacts
+          </button>
+          <button class="function-buttons__edit-multiple">
+            Enable / Disable All Cards Edit
+          </button>
+          <button class="function-buttons__sord-a-z">Sort A / Z</button>
+        </div>
+      </section>
+      <section class="users-list">
+        <!-- <div class="card-wrapper">
+          <div class="card">
+            <div class="card__name">
+              <h2>Paulius Murašovas</h2>
+            </div>
+            <div class="card__phone">
+              <p>+37069020660</p>
+            </div>
+            <div class="card__email">
+              <p>email@example.com</p>
+            </div>
+          </div>
+          <div class="card-actions">
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-solid fa-pen-to-square"></i>
+            <i class="fa-solid fa-trash"></i>
+            <i class="fa-regular fa-square-check"></i>
+            <i></i>
+          </div>
+        </div> -->
+      </section>
+    </main>
+  </body>
+</html>
