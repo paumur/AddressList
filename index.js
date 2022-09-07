@@ -5,6 +5,7 @@ window.onload = () => {
   if (localStorage.length) {
     renderContactsFromLocalStorate();
     data = retrieveDataFromLocalStorage();
+    Draggable();
   }
 };
 
@@ -75,6 +76,10 @@ function renderContactsFromLocalStorate() {
       cardActions.appendChild(buttonRemove);
       cardActions.appendChild(buttonCheck);
       cardRoot.appendChild(cardWrapper);
+    });
+    const getWrapper = document.querySelectorAll(".card-wrapper");
+    getWrapper.forEach((card) => {
+      card.setAttribute("draggable", "true");
     });
   }
 }
@@ -178,7 +183,11 @@ window.addEventListener("click", (e) => {
 
 document
   .querySelector(".function-buttons__edit-multiple")
-  .addEventListener("click", () => {
+  .addEventListener("click", (e) => {
+    e.target.classList.toggle("function-buttons__edit-multiple--selected");
+    document.querySelectorAll(".card-wrapper").forEach((item) => {
+      item.classList.toggle("card-wrapper--selected");
+    });
     const cards = document.querySelectorAll(".card-wrapper");
     cards.forEach((card) => {
       if (!card.getAttribute("contenteditable")) {
@@ -275,6 +284,8 @@ function renderContactsFromData(data) {
     cardActions.appendChild(buttonRemove);
     cardActions.appendChild(buttonCheck);
     cardRoot.appendChild(cardWrapper);
+    const getWrapper = document.querySelector(".card-wrapper");
+    getWrapper.setAttribute("draggable", "true");
   });
 }
 

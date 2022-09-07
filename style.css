@@ -120,3 +120,8 @@ button:hover {
   gap: 0.8rem;
   color: #ffd369;
 }
+
+.function-buttons__edit-multiple--selected,
+.card-wrapper--selected {
+  border: 2px solid rgb(66, 133, 91);
+}
