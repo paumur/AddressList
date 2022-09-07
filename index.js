@@ -113,6 +113,7 @@ window.addEventListener("click", (e) => {
       data[data.length - 1].favorite = false;
       syncToLocalStorage();
       renderContactsFromLocalStorate();
+      Draggable();
     }
   }
   // Make SELECTED CARD EDITABLE
@@ -142,6 +143,7 @@ window.addEventListener("click", (e) => {
       data[index].email = values[1];
       data[index].tel = values[2];
       syncToLocalStorage();
+      Draggable();
     }
   }
 
@@ -160,6 +162,7 @@ window.addEventListener("click", (e) => {
     checkedList = [];
     syncToLocalStorage();
     renderContactsFromLocalStorate();
+    Draggable();
   }
 
   if (e.target.className.includes("fa-square-check")) {
@@ -204,6 +207,7 @@ document
         }
         syncToLocalStorage();
         renderContactsFromLocalStorate();
+        Draggable();
       }
     });
   });
@@ -215,15 +219,16 @@ document
   .addEventListener("click", () => {
     data.sort((a, b) => {
       if (a.favorite) {
-        return 1;
+        return -1;
       } else if (a.favorite) {
-        return 1;
+        return -1;
       } else {
         return a.name > b.name ? 1 : b.name > a.name ? -1 : 0;
       }
     });
     syncToLocalStorage();
     renderContactsFromLocalStorate();
+    Draggable();
   });
 
 // SEARCH FOR DESIRE CONTACT
@@ -284,9 +289,12 @@ function renderContactsFromData(data) {
     cardActions.appendChild(buttonRemove);
     cardActions.appendChild(buttonCheck);
     cardRoot.appendChild(cardWrapper);
-    const getWrapper = document.querySelector(".card-wrapper");
-    getWrapper.setAttribute("draggable", "true");
   });
+  const getWrapper = document.querySelectorAll(".card-wrapper");
+  getWrapper.forEach((card) => {
+    card.setAttribute("draggable", "true");
+  });
+  Draggable();
 }
 
 function removeDataFromLocalStorage(cardName, cardEmail, cardTel) {
@@ -302,4 +310,30 @@ function removeDataFromLocalStorage(cardName, cardEmail, cardTel) {
   } catch (e) {
     if (e !== "Break") throw e;
   }
+}
+
+// Draggable functionallity
+
+function Draggable() {
+  const cards = document.querySelectorAll(".card-wrapper");
+  let startIndex;
+  let endIndex;
+  cards.forEach((card, i) => {
+    card.addEventListener("dragstart", () => {
+      startIndex = i;
+    });
+  });
+  cards.forEach((card, i) => {
+    card.addEventListener("dragend", () => {
+      [data[startIndex], data[endIndex]] = [data[endIndex], data[startIndex]];
+      renderContactsFromData(data);
+      syncToLocalStorage();
+    });
+  });
+
+  cards.forEach((card, i) => {
+    card.addEventListener("dragover", () => {
+      endIndex = i;
+    });
+  });
 }

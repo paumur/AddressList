@@ -125,3 +125,7 @@ button:hover {
 .card-wrapper--selected {
   border: 2px solid rgb(66, 133, 91);
 }
+
+.dragged-over {
+  background-color: #ffd369;
+}
